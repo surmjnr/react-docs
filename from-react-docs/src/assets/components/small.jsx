@@ -55,6 +55,29 @@ export function ProfileInfo2(){
 
   );
 } 
+const skills = [
+  { title: 'Hardware', isselected: true, id: 1 },
+  { title: 'software', isselected: true, id: 2 },
+  { title: 'networking', isselected: true, id: 3 },
+];
+
+export  function Skillset() {
+  const listItems = skills.map(skill =>
+    <li
+      key={skill.id}
+      style={{
+        color: skill.isselected ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {skill.title}
+    </li>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
 
 export default function Smallfu() {
    const showProfileInfo = false;
@@ -64,6 +87,7 @@ export default function Smallfu() {
       <div className='content'>
       {showProfileInfo ? <ProfileInfo2 /> : <ProfileInfo />}
       <p>Small component with new button</p>
+      <Skillset />
       <Newbutton />
       </div>
     </div>
