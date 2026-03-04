@@ -1,12 +1,10 @@
 import banafoImage from '../pictures/Banafo.jpeg';
+import { useState } from 'react';
 
-export function Newbutton() {
-  function handleClick() {
-    alert('Button clicked!');
-  }
+export function Newbutton({ onClick, label }) {
   return (
-    <button className="myButton" onClick={handleClick}>
-      new button
+    <button className="myButton" onClick={onClick}>
+      {label}
     </button>
   );
 }
@@ -85,15 +83,23 @@ export  function Skillset() {
 
 
 export default function Smallfu() {
-   const showProfileInfo = false;
+  const [clickCount, setClickCount] = useState(0);
+  const showProfileInfo = false;
+
+  function handleButtonClick() {
+    setClickCount((prev) => prev + 1);
+  }
 
   return (
     <div className='profileInformation'>
       <div className='content'>
-      {showProfileInfo ? <ProfileInfo2 /> : <ProfileInfo />}
-      <p>Small component with new button</p>
-      <Skillset />
-      <Newbutton />
+        {showProfileInfo ? <ProfileInfo2 /> : <ProfileInfo />}
+        <p>Small component with new button</p>
+        <Skillset />
+        <Newbutton onClick={handleButtonClick} label="Button 1" />
+        <p>Button clicked {clickCount} times</p>
+        <Newbutton onClick={handleButtonClick} label="Button 2" />
+        <p>Button clicked {clickCount} times</p>
       </div>
     </div>
   );
