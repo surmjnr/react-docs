@@ -3,7 +3,7 @@
 
 export function Newbutton() {
   return (
-    <button> new button </button>
+    <button className="myButton"> new button </button>
   );
 }
 
