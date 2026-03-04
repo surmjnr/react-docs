@@ -1,8 +1,13 @@
 import banafoImage from '../pictures/Banafo.jpeg';
 
 export function Newbutton() {
+  function handleClick() {
+    alert('Button clicked!');
+  }
   return (
-    <button className="myButton"> new button </button>
+    <button className="myButton" onClick={handleClick}>
+      new button
+    </button>
   );
 }
 
